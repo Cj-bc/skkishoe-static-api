@@ -1,0 +1,18 @@
+* skkishoe static API
+
+このレポジトリでは、skkishoeサーバーとして使用可能な静的なAPIをホスト
+しています。対応している辞書は[[https://github.com/skk-dev/dict][skk-dev/dict]]で配付されている ~SKK-JISYO.L~
+をUTF-8へ変換したものです。
+
+
+本来、各自でカスタマイズさえた辞書が使えるようにskkishoeサーバーは個々
+人で建てるのがメインと考えていますが、手軽に試してみたい人向けに提供さ
+れています。又、skkishoeは元々VRSNSである[[https://resonite.com/][Resonite]]で制作しているキーボー
+ド向けに開発を始めたものであり、SKKに慣れていない人達も多いであろうこ
+とからこのような標準サーバーを用意しています。
+
+** ページの生成方法
+
+#+begin_src sh
+  make
+#+end_src
