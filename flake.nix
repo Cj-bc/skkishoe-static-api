@@ -15,7 +15,7 @@
         	    rev = "25da7d1b6d7b33901d03ff812749759b209217f4";
         	    hash = "sha256-IBu3nzUrXOcBi8TSkthNxHUAycKETMn+9rRiKAHfQzE=";
 	        };
-    	    nativeBuildInputs = [pkgs.nkf];
+    	    nativeBuildInputs = [pkgs.nkf pkgs.git];
         };
     	default = self.packages.x86_64-linux.skkishoe-static-api;
     };
