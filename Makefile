@@ -1,6 +1,5 @@
 DICTIONARIES ?= SKK-JISYO.L
 
-nkf:
 
 dict: git
 	git clone --depth=1 https://github.com/skk-dev/dict
