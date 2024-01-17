@@ -1,5 +1,6 @@
 DICTIONARIES ?= SKK-JISYO.L
 
+.PHONY: build
 
 dict: git
 	git clone --depth=1 https://github.com/skk-dev/dict
