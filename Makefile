@@ -1,9 +1,10 @@
 DICTIONARIES ?= SKK-JISYO.L
+DST := "."
 
 .PHONY: build
 
 build: convert.awk dict
-	./convert.awk -v dst="out/midashi/" $(foreach d,$(DICTIONARIES),dict/$(d).utf-8)
+	./convert.awk -v dst="$(DST)/midashi/" $(foreach d,$(DICTIONARIES),dict/$(d).utf-8)
 
 dict:
 	git clone --depth=1 https://github.com/skk-dev/dict
