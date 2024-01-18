@@ -26,6 +26,9 @@
         	    hash = "sha256-IBu3nzUrXOcBi8TSkthNxHUAycKETMn+9rRiKAHfQzE=";
 	        };
     	    nativeBuildInputs = [pkgs.nkf pkgs.git self.packages.${system}.skk-dict];
+    	    buildPhase = ''
+    	    DST=$out make build
+     	    ''
         };
     	default = self.packages.x86_64-linux.skkishoe-static-api;
     };
