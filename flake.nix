@@ -15,7 +15,7 @@
             };
             buildPhase = ''
             mv skk-JISYO.L $out
-            ''
+            '';
         };
         skkishoe-static-api = pkgs.stdenv.mkDerivation {
         	name = "skkishoe-static-api";
@@ -28,7 +28,7 @@
     	    nativeBuildInputs = [pkgs.nkf pkgs.git self.packages.${system}.skk-dict];
     	    buildPhase = ''
     	    DST=$out make build
-     	    ''
+     	    '';
         };
     	default = self.packages.x86_64-linux.skkishoe-static-api;
     };
