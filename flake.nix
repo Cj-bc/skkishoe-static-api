@@ -14,7 +14,7 @@
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
             };
             buildPhase = ''
-            mv skk-JISYO.L $out
+            mv SKK-JISYO.L $out
             '';
         };
         skkishoe-static-api = pkgs.stdenv.mkDerivation {
