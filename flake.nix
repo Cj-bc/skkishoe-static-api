@@ -13,7 +13,7 @@
                 url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz";
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
             };
-            buildPhase = ''
+            installPhase = ''
             mv SKK-JISYO.L $out
             '';
     in {
