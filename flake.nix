@@ -9,17 +9,24 @@
     packages.${system} = let
 		skk-jisyo-base = pkgs.stdenv.mkDerivation {
             name = "skk-JISYO-base";
-            src = pkgs.fetchzip {
+            src = pkgs.fetchurl {
                 url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz";
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
             };
+            nativeBuildInputs = [ pkgs.gzip ];
+            unpackPhase = ''
+            	runHook preUnpack
+				cp $src $(stripHash "$src")
+				find . -name 'SKK-JISYO.*.gz' -exec gunzip {} \+
+            	runHook postUnpack
+            '';
             installPhase = ''
             mv SKK-JISYO.L $out
             '';
     in {
         skk-jisyo-L = skk-jisyo-base.overrideAttrs {
             name = "skk-JISYO.L";
-            src = pkgs.fetchzip {
+            src = pkgs.fetchurl {
                 url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz";
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
             };
