@@ -34,12 +34,7 @@
         };
         skkishoe-static-api = pkgs.stdenv.mkDerivation {
         	name = "skkishoe-static-api";
-	        src = pkgs.fetchFromGitHub {
-    	        owner = "Cj-bc";
-        	    repo = "skkishoe-static-api";
-        	    rev = "25da7d1b6d7b33901d03ff812749759b209217f4";
-        	    hash = "sha256-IBu3nzUrXOcBi8TSkthNxHUAycKETMn+9rRiKAHfQzE=";
-	        };
+	        src = ./.;
     	    nativeBuildInputs = [pkgs.nkf pkgs.git self.packages.${system}.skk-dict];
     	    buildPhase = ''
     	    DST=$out make build
