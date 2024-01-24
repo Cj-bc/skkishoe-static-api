@@ -6,9 +6,9 @@
   pkgs = nixpkgs.legacyPackages.${system};
   in {
 
-    packages.${system} = {
-        skk-dict = pkgs.stdenv.mkDerivation {
-            name = "skk-JISYO.L";
+    packages.${system} = let
+		skk-jisyo-base = pkgs.stdenv.mkDerivation {
+            name = "skk-JISYO-base";
             src = pkgs.fetchzip {
                 url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz";
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
@@ -16,6 +16,21 @@
             buildPhase = ''
             mv SKK-JISYO.L $out
             '';
+    in {
+        skk-jisyo-L = skk-jisyo-base.overrideAttrs {
+            name = "skk-JISYO.L";
+            src = pkgs.fetchzip {
+                url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz";
+                hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
+            };
+        };
+        skk-jisyo-S = skk-jisyo-base.overrideAttrs {
+            name = "skk-JISYO.S";
+            pname = "skk-JISYO.S";
+            src = pkgs.fetchurl {
+                url = "https://skk-dev.github.io/dict/SKK-JISYO.S.gz";
+                hash = "sha256-NJ++BzYZ0eWknENU6ZQ1UpLt4Ivi+z5scUgXdRFAXsI=";
+            };
         };
         skkishoe-static-api = pkgs.stdenv.mkDerivation {
         	name = "skkishoe-static-api";
