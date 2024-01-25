@@ -23,7 +23,7 @@
             installPhase = ''
             d="$out/usr/share/skk"
             mkdir -p $d
-            mv SKK-JISYO.L $d/
+            mv SKK-JISYO.* $d/
             '';
     in {
         skk-jisyo-L = skk-jisyo-base.overrideAttrs {
