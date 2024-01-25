@@ -1,5 +1,5 @@
 DICTIONARIES ?= SKK-JISYO.L
-DST ?= "./midashi"
+DST ?= "./midashis"
 TEMPDIR := $(shell mktemp -d)
 
 .PHONY: build

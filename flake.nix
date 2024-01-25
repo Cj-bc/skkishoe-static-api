@@ -46,10 +46,10 @@
         name = "skkishoe-static-api";
         src = ./.;
         nativeBuildInputs = [pkgs.nkf pkgs.gawk self.packages.${system}.skk-jisyo-S];
-        makeFlags = [ "DST=midashi" "DICTIONARIES=${self.packages.${system}.skk-jisyo-S}/usr/share/skk/SKK-JISYO.S"];
+        makeFlags = [ "DST=midashis" "DICTIONARIES=${self.packages.${system}.skk-jisyo-S}/usr/share/skk/SKK-JISYO.S"];
         installPhase = ''
           mkdir -p $out
-          cp -r midashi $out
+          cp -r midashis $out
           '';
       };
       default = self.packages.x86_64-linux.skkishoe-static-api;
