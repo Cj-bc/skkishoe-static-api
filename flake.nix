@@ -14,6 +14,7 @@
                 hash = "sha256-GqJ3stBaDONzHGtE3l4ixITQcRXY8MTYuM2a6QevRhM=";
             };
             nativeBuildInputs = [ pkgs.gzip ];
+            phases = "unpackPhase installPhase";
             unpackPhase = ''
             	runHook preUnpack
 				cp $src $(stripHash "$src")
