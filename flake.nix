@@ -47,9 +47,7 @@
         	name = "skkishoe-static-api";
 	        src = ./.;
     	    nativeBuildInputs = [pkgs.nkf self.packages.${system}.skk-jisyo-S];
-    	    buildPhase = ''
-    	    DST=$out make build
-     	    '';
+          makeFlags = [ "DST=midashi" "DICTIONARIES=${self.packages.${system}.skk-jisyo-S}/usr/share/skk/SKK-JISYO.S"];
         };
     	default = self.packages.x86_64-linux.skkishoe-static-api;
     };
