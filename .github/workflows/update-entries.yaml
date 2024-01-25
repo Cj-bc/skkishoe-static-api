@@ -10,16 +10,14 @@ jobs:
       - uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28
       - name: build
         run: nix build .
-      - name: push changes
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git switch gh-pages 
+      - uses: actions/upload-pages-artifact
+        with:
+          path: "result"
 
-          mv result/midashi ./midashi
-          git add midashi
-          git commit -m "Auto commit"
-          
-          git push origin gh-pages
+  deploy:
+    runs-on: ubuntu-latest
+    needs: update-entries
+    steps:
+      - uses: actions/deploy-pages@v4
 
 
