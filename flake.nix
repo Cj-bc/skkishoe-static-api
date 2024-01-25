@@ -25,6 +25,7 @@
             mkdir -p $d
             mv SKK-JISYO.* $d/
             '';
+      };
     in {
         skk-jisyo-L = skk-jisyo-base.overrideAttrs {
             name = "skk-JISYO.L";
