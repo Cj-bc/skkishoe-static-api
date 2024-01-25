@@ -1,10 +1,10 @@
 DICTIONARIES ?= SKK-JISYO.L
-DST := "."
+DST ?= "./midashi"
+TEMPDIR := $(shell mktemp -d)
 
 .PHONY: build
 
-build: convert.awk dict
-	./convert.awk -v dst="$(DST)/midashi/" $(foreach d,$(DICTIONARIES),$(d).utf-8)
-
-dict:
-	for f in $(DICTIONARIES); do nkf -w8 $f > ${f}.utf-8; done
+build: convert.awk
+	for f in $(DICTIONARIES); do nkf -w8 $$f > $(TEMPDIR)/$${f##*/}.utf-8; done
+	./convert.awk -v dst="$(DST)/" $(TEMPDIR)/*
+	rm -r $(TEMPDIR)
