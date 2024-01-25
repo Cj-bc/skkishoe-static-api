@@ -1,5 +1,7 @@
 name: Update entries
 
+on: workflow_dispatch
+
 jobs:
   update-entries:
     runs-on: ubuntu-latest
