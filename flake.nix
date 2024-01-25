@@ -42,7 +42,7 @@
         skkishoe-static-api = pkgs.stdenv.mkDerivation {
         	name = "skkishoe-static-api";
 	        src = ./.;
-    	    nativeBuildInputs = [pkgs.nkf pkgs.git self.packages.${system}.skk-dict];
+    	    nativeBuildInputs = [pkgs.nkf pkgs.git self.packages.${system}.skk-jisyo-S];
     	    buildPhase = ''
     	    DST=$out make build
      	    '';
