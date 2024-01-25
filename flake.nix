@@ -21,7 +21,9 @@
             	runHook postUnpack
             '';
             installPhase = ''
-            mv SKK-JISYO.L $out
+            d="$out/usr/share/skk"
+            mkdir -p $d
+            mv SKK-JISYO.L $d/
             '';
     in {
         skk-jisyo-L = skk-jisyo-base.overrideAttrs {
